@@ -1,0 +1,82 @@
+
+<div id="gif">
+    <img src="../../assets/edit_profile.png" alt="message gif">
+</div>
+
+<main class="container d-flex">
+    <section>
+      <div class="lx-container-70">
+        <div class="lx-row">
+          <h1 class="title">Edit your profile <i class="fa-sharp fa-solid fa-user-pen"></i></h1>
+        </div>
+        <div class="lx-row align-stretch">
+          <div id="profile_pic" class="lx-column column-user-pic">
+            <div class="profile-pic bs-md">
+              <h1 class="pic-label">Profile picture</h1>
+              <div class="pic bs-md">
+                <img src="{{userDetails.profile_pic}}" alt="Profile picture" width="4024" height="6048">
+                <label for="file" id="change-avatar" class="lx-btn"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Change your profile picture.</label>
+                <input type="file" accept="image/*" id="file" (change)="selectChange($event)">
+              </div>
+              <div class="pic-info">
+                <p><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;This photo will appear on the platform, in your contributions or where it is mentioned.</p>
+              </div>
+            </div>
+          </div>
+          <div id="details">
+            <form action="get">
+              <div  class="fieldset">
+                <label for="user-name">Name</label>
+                <div class="input-wrapper">
+                  <span class="icon"><i class="fas fa-user"></i></span>
+                  <input type="text" id="user-name" name="username" [(ngModel)]="userDetails.username" value="{{userDetails.username}}" autocomplete="username" required>
+                </div>
+                <div id="user-name-helper" class="helper">
+                  <h5>Your name can appear on the platform, in your contributions or where it is mentioned.</h5>
+                </div>
+              </div>
+              <div class="fieldset">
+                <label for="email">E-mail</label>
+                <div class="input-wrapper">
+                  <span class="icon"><i class="fas fa-envelope"></i></span>
+                  <input type="email" id="email" name="email_id" value="{{userDetails.email}}" [(ngModel)]="tempUser.email_id" readonly> 
+                </div>
+                <div id="user-name-helper" class="helper">
+                    <h5>You can't change this field</h5>
+                </div>
+              </div>
+              <button id="change" *ngIf="!verified" mat-raised-button color="accent" type="button" (click)="passChange = !passChange">Change Password</button>
+              <div *ngIf="passChange" class="fieldset">
+                <label for="pass">Current Password</label>
+                <div class="input-group input-wrapper">
+                  <span class="icon"><i class="fas fa-key"></i></span>
+                  <input [type]="hide ? 'password' : 'text'" id="pass"  name="password" [(ngModel)]="tempUser.password">
+                  <mat-icon id="eye" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <button id="verify" mat-stroked-button type="button" (click)="verfiyPass()" >verify</button>
+                </div>
+                <div id="user-name-helper" class="helper">
+                    <h5>Enter your OLD password and Verify to Change Password</h5>
+                </div>
+              </div>
+              <div class="fieldset" *ngIf="verified">
+                <label for="pass">New Password</label>
+                <div class="input-wrapper">
+                  <span class="icon"><i class="fas fa-key"></i></span>
+                  <input [type]="hide ? 'changedPass' : 'text'" id="pass" autocomplete="current-password" name="password" [(ngModel)]="changedPass">
+                  <mat-icon id="eye1" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </div>
+                <div id="pass-helper" class="helper">
+                    <h5>Enter Your New Password</h5>
+                </div>
+              </div>
+              <div class="d-flex justify-content-evenly">
+                <button type="button" mat-flat-button color="warn" routerLink="/dashboard"><i class="fas fa-ban"></i>&nbsp;&nbsp;Cancel</button>
+                <button id="success" type="button" mat-raised-button (click)="changeprofile()"><i class="fas fa-save"></i>&nbsp;&nbsp;SAVE</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+

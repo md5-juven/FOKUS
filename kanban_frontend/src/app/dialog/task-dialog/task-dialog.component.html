@@ -1,0 +1,54 @@
+
+
+<div id="tasks">
+
+
+<div mat-dialog-title><h1 >Add a New Task</h1></div>
+<h2>Specify the members by adding their Email-ID's {{data?.project_id}}</h2>
+<div mat-dialog-content>
+  <form #task="ngForm" (ngSubmit)="addTask(task)">
+    <div>
+      <mat-form-field appearance="outline" id="input1" color="primary">
+        <mat-label>Task Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="formData.name" #name="ngModel" required>
+      </mat-form-field><br>
+      <mat-form-field appearance="outline" id="input2">
+        <mat-label>Task Description</mat-label>
+        <input matInput type="text" name="description" [(ngModel)]="formData.description" #description="ngModel" required>
+      </mat-form-field>
+      
+
+    </div>
+    <label id="example-radio-group-label">Task Priority :</label>
+      <mat-radio-group name="priority" #priority="ngModel" [(ngModel)]="formData.priority" required>
+          <mat-radio-button class="example-radio-button" *ngFor="let priority of priorities" [value]="priority" >
+            {{priority}}
+          </mat-radio-button>
+      </mat-radio-group><br>
+
+      <mat-form-field appearance="outline" id="input4">
+        <mat-label>Members</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="memberList" multiple>
+          <mat-option [matTooltip]="email.email!" [disabled]="isOptionDisabled(email.email)" matTooltipPosition="left" *ngFor="let email of emails" [value]="email.email">
+            {{email.email}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" id="input3">
+        <mat-label>Select Status</mat-label>
+        <mat-select  name="status" [(ngModel)]="formData.status" #status="ngModel" required >
+        <mat-option *ngFor= "let status of statuses" [value]="status">{{status}}</mat-option>
+    </mat-select>
+
+    </mat-form-field>
+
+    <div mat-dialog-actions id="btns">
+      <button id="btn1" mat-flat-button type="button" (click)="onNoClick()" color="warn">Cancel</button>
+      <button mat-raised-button [mat-dialog-close]="formData.name" [disabled]="task.form.invalid" type="submit" color="primary" cdkFocusInitial>Ok</button>
+    </div>
+
+  </form>
+  
+</div>
+</div>

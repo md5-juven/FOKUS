@@ -1,0 +1,148 @@
+<!-- <div> -->
+<!-- <img id="gif" src="../../assets/gif2.gif" alt="GIF@"> -->
+<!-- </div> -->
+<!--  -->
+<!-- <h1>Get Started <br>  -->
+<!-- <h3 id="h3">Create Your Account Now</h3></h1> -->
+<!--  -->
+<!--  -->
+<!-- <div id="register-form" [class.mat-elevation-z2]="true"> -->
+<!-- <h2>SignUP</h2> -->
+<!-- <form [formGroup]="registerForm" (submit)="onRegister()"> -->
+<!--  -->
+<!-- <mat-form-field appearance="outline"> -->
+<!-- <mat-label>Name</mat-label> -->
+<!-- <input matInput type="text" formControlName="name"> -->
+<!-- <mat-error *ngIf="name?.errors?.['required']"> -->
+<!-- Name is required. -->
+<!-- </mat-error> -->
+<!-- <mat-error *ngIf="name?.errors?.['minlength']"> -->
+<!-- Name should have minimum of 3 characters. -->
+<!-- </mat-error> -->
+<!--  -->
+<!--  -->
+<!-- </mat-form-field> -->
+<!-- <mat-form-field appearance ="outline"> -->
+<!-- <mat-label>Email Id</mat-label> -->
+<!-- <input matInput type="email" formControlName="email"> -->
+<!-- <mat-error *ngIf="email?.errors?.['required']"> -->
+<!-- Email is required. -->
+<!-- </mat-error> -->
+<!-- <mat-error *ngIf="email?.errors?.['pattern']"> -->
+<!-- Please enter email with correct pattern ( @, .com etc..) -->
+<!-- </mat-error> -->
+<!-- </mat-form-field> -->
+<!--  -->
+<!-- <mat-form-field appearance="outline"> -->
+<!-- <mat-label>Password</mat-label> -->
+<!-- <input matInput type="password" formControlName="password"> -->
+<!-- <mat-error *ngIf="password?.invalid"> -->
+<!-- Password required -->
+<!-- </mat-error> -->
+<!--           -->
+<!-- </mat-form-field> -->
+<!--  -->
+<!-- <button mat-raised-button color="warn" type="submit" [disabled]="!registerForm.valid">Register</button> -->
+<!-- <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with" *ngIf="!user"></asl-google-signin-button> -->
+<!--  -->
+<!-- </form> -->
+<!--  -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
+
+
+
+
+<!-- <div id="container"> -->
+<!-- <div class="row"></div> -->
+<!-- <div class="row align-items-center justify-content-center" style="height:100vh;"> -->
+<!-- <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4"> -->
+<!-- <div class="card"> -->
+<!-- <div class="card-body"> -->
+<!-- <h3 class="text-center">SIGN UP</h3> -->
+<!-- <form id="registerForm" [formGroup]="registerForm" (submit)="onRegister()"> -->
+<!-- <div class="profile-picture-upload"> -->
+<!-- <img *ngIf="!registerForm.value.profile_pic" src="https://www.drupal.org/files/profile_default.png" alt="Profile picture preview" class="imagePreview"> -->
+<!-- <img *ngIf="registerForm.value.profile_pic" src="{{registerForm.value.profile_pic}}" alt="Profile picture preview" class="imagePreview"> -->
+<!-- <label for="file" id="upload"><mat-icon id="icon">camera_alt</mat-icon></label> -->
+<!-- <input id="file" accept="image/*" type="file" class="hidden" name="fileInput" formControlName="profile_pic" (change)="selectChange($event)"/> -->
+<!-- </div> -->
+<!-- <div class="form-floating mb-3"> -->
+<!-- <input type="text" class="form-control" id="nameInput" placeholder="Input your Name" autocomplete="off" name="name" required formControlName="name"> -->
+<!-- <label for="nameInput">Name</label> -->
+<!-- </div> -->
+<!-- <div class="form-floating mb-3"> -->
+<!-- <input type="email" class="form-control" id="emailInput" placeholder="Input your email" autocomplete="off" name="email" required formControlName="email"> -->
+<!-- <label for="emailInput">Email address</label> -->
+<!-- <mat-error *ngIf="email?.errors?.['pattern']"> -->
+<!-- Please enter email with correct pattern ( @, .com etc..) -->
+<!-- </mat-error> -->
+<!-- </div> -->
+<!-- <div class="form-floating mb-3"> -->
+<!-- <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Input your password" required formControlName="password"> -->
+<!-- <label for="passwordInput">Password</label> -->
+<!-- </div> -->
+<!--    -->
+<!-- <div class="text-center mb-5"> -->
+<!-- <button mat-raised-button type="submit" color="primary" [disabled]="registerForm.invalid">REGISTER</button><br> -->
+<!-- </div> -->
+<!-- <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with"></asl-google-signin-button> -->
+<!-- </form> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div>  -->
+<!--  -->
+
+<div id="res_img">
+  <img src="../../assets/register.png" alt="Sign Up">
+  <h2 id="content">Collaborate with your Colleagues</h2>
+</div>
+
+<div class="form-structor">
+  <div class="signup">
+    <form [formGroup]="registerForm" (submit)="onRegister()">
+      <h2 class="form-title" id="signup">Sign up</h2>
+      <div class="form-holder">
+
+        <img *ngIf="!registerForm.value.profile_pic" src="https://www.drupal.org/files/profile_default.png"
+          alt="Profile picture preview" class="imagePreview">
+        <img *ngIf="registerForm.value.profile_pic" src="{{registerForm.value.profile_pic}}"
+          alt="Profile picture preview" class="imagePreview">
+        <label for="file" id="upload"><mat-icon id="icon">camera_alt</mat-icon></label>
+        <input id="file" accept="image/*" type="file" class="hidden" name="fileInput" formControlName="profile_pic"
+          (change)="selectChange($event)" />
+        <div>
+          <input type="text" class="input" placeholder="Name" required formControlName="name"
+            (focusout)="onChange($event)" />
+
+        </div>
+        <div>
+          <input type="email" class="input" placeholder="Email" required formControlName="email" />
+          <mat-error *ngIf="email?.errors?.['pattern']">
+            Please enter email with correct pattern ( @, .com etc..)
+          </mat-error>
+        </div>
+        <div>
+          <input [type]="hide ? 'password' : 'text'" class="input" placeholder="Password" required
+          formControlName="password" />
+          <mat-error>
+            
+          </mat-error>
+        </div>
+        <mat-icon id="eye" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </div>
+      <button id="btn" mat-raised-button type="submit" [disabled]="registerForm.invalid">Sign up</button>
+      <!-- <asl-google-signin-button size='large' id="google" shape="pill" theme="outline"></asl-google-signin-button> -->
+    </form>
+  </div>
+  <div class="login slide-up">
+    <div class="center">
+      <h2 class="form-title" routerLink="/login" id="login">
+        <h6>Already have an Account? </h6> Log in
+      </h2>
+    </div>
+  </div>
+</div>

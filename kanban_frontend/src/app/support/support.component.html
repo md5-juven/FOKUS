@@ -1,0 +1,38 @@
+<div id="main-container">
+  
+    <div id="chats-list" >
+      <h1>Open Chats</h1>
+        <div *ngFor="let chat of chatsList">
+            <h3 (click)="getMessages(chat?.chat_id)">{{chat?.chat_id | slice:7}}</h3>
+        </div>
+
+    </div>
+    <div id="messages">
+        <div id="support">
+            <h2>Fokus Chat Support</h2>
+          </div>
+          <div id="chat-history" >
+          <mat-card-content *ngFor="let message of messages$">
+      
+            <div id="sender" *ngIf="message?.email === 'care.fokus@gmail.com'">
+              <p>{{message.message}}</p>
+            </div>
+            <div id="receiver" *ngIf="message?.email === email$">
+              <p>{{message.message}}</p>
+            </div>
+      
+          </mat-card-content>
+        </div>
+          <div id="input-message">
+            <form #chat="ngForm" (ngSubmit)="sendMessage(chat)">        
+                <mat-form-field appearance="outline">      
+                  <input matInput type="text" name="message" placeholder="type message here" [(ngModel)]="formData.message" #message="ngModel" required>
+                </mat-form-field>
+                <button mat-icon-button type="submit" [disabled]="chat.form.invalid"><mat-icon>send</mat-icon></button>
+            </form>
+          </div>
+     
+      
+    </div>
+
+</div>

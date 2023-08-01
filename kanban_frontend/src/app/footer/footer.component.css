@@ -1,0 +1,53 @@
+
+#ft_btn{
+    background-color: transparent;
+    border: none;
+     height: 100%;
+     width: 50px;
+     color: black; 
+     margin-right: 20px;
+  }
+  
+  footer{
+    position: absolute;
+    top: auto;
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #cdd8e0;
+   height: 80px;
+   width: 100%;
+   padding-left:3%;
+   padding-right: 3%;
+  }
+  #logo{
+    background-color: transparent;
+    border: 0px;
+  }
+
+  img{
+    width: 150px;
+  }
+
+  h3{
+    color: black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+  }
+
+  @media screen  and (max-width: 500px){
+
+    footer{
+      height: 100px;
+    }
+
+    #ft_btn{
+      margin-right: 20px;
+      margin-top: 10px;
+    }
+
+    h3{
+      margin-left: 20px;
+      margin-top: 30px;
+    }
+  }

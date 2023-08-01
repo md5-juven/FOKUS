@@ -1,0 +1,54 @@
+<!-- @author : Vinay  -->
+<div id="main-container">
+  <div mat-dialog-title><h1>Create New Project</h1></div>
+<div id="project-form">
+    <form [formGroup]="projectForm">
+      <div id="col-1">
+        <mat-form-field class="form-fields" appearance="outline">
+          <mat-label>Project Name</mat-label>
+          <input matInput type="text" formControlName="name">
+          <mat-error *ngIf="name?.errors?.['required']">
+              Project Name is required.
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field  class="form-fields" appearance="outline">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input  [rangePicker]="picker">
+          <input matStartDate formControlName="startDate" placeholder="Start date">
+          <input matEndDate formControlName="duration" placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      
+        <mat-error *ngIf="projectForm.controls.startDate.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+        <mat-error *ngIf="projectForm.controls.duration.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+      </mat-form-field>
+      
+      <!-- <p>Selected range: {{projectForm.value | json}}</p> -->
+
+      </div>
+
+      <div id="col-2">
+        <mat-form-field  class="form-fields" appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="4" type="text"  formControlName="description"></textarea>
+          <mat-error *ngIf="description?.errors?.['required']">
+              Description is required.
+          </mat-error>
+      </mat-form-field>
+
+      </div><br>
+        
+      <mat-dialog-actions id="btns">
+        <button mat-raised-button mat-dialog-close color="warn">Cancel</button>
+        <button mat-raised-button [mat-dialog-close]="true" [disabled]="projectForm.invalid" (click)="time()" color="primary">Create</button>
+      </mat-dialog-actions>
+      
+      
+    </form>
+</div>
+<mat-dialog-content class="mat-typography">
+  </mat-dialog-content>
+</div>

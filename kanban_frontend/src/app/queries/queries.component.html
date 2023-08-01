@@ -1,0 +1,53 @@
+
+
+<div class="background">
+    <div class="container">
+      <div class="screen">
+        <div class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-button close"></div>
+            <div class="screen-header-button maximize"></div>
+            <div class="screen-header-button minimize"></div>
+          </div>
+        </div>
+        <div class="screen-body">
+          <div class="screen-body-item left">
+            <div class="app-title">
+              <span>CONTACT US</span>
+            </div>
+            <img src="../../assets/mesages.gif" alt="">
+            <div class="app-contact"></div>
+          </div>
+          <div class="screen-body-item">
+            <div class="app-form">
+              <div class="app-form-group">
+                <input class="app-form-control" type="text" name="name" placeholder="NAME" [(ngModel)]="messagedata.name" >
+              </div>
+              <div class="app-form-group">
+                <input class="app-form-control" type="email" name="email" placeholder="EMAIL" [(ngModel)]="messagedata.email" >
+              </div>
+              <div class="app-form-group">
+                <input class="app-form-control" type="tel" name="contact" placeholder="CONTACT NO" [(ngModel)]="messagedata.contact" >
+              </div>
+              <div class="app-form-group message">
+                <input class="app-form-control" type="text" name="message" placeholder="MESSAGE" [(ngModel)]="messagedata.message" >
+              </div>
+              <div class="app-form-group buttons">
+                <button class="app-form-button" routerLink="/home">CANCEL</button>
+                <button class="app-form-button" (click)="sendquerie()">SEND</button>
+              </div>
+              <div id="content">
+                <h2>
+                  <i class="fa-solid fa-triangle-exclamation"></i> Please the Corect Email ...... <br> This Email address will be used <br> to contact you !
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>

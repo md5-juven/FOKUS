@@ -1,0 +1,41 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@600&family=Phudu:wght@600&family=Raleway:wght@900&family=Roboto+Mono:ital,wght@1,600&display=swap');
+
+
+#main-container{
+    background-image: url('../../../assets/bgn.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    
+
+form{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+}
+#col-1{
+    width: 50%;
+}
+
+#col-2{
+    width: 50%;
+}
+
+.form-fields{
+    width: 90%;
+}
+
+h1{
+    font-family: "Phudu", cursive;
+}
+
+#btns{
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+}
+
+
+

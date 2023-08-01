@@ -1,0 +1,26 @@
+<div>
+    <img src="../../assets/auth.png" alt="background" id="img1">
+    <div id="login-form">
+        <a href=""></a>
+            <h2>Enter Registered Email-id</h2>
+            <p *ngIf="!sent">
+                We will send a reset password link to your email.
+            </p>
+            <p *ngIf="sent">
+                The email has been successfully sent
+                please check your email
+            </p>
+            <p *ngIf="error">
+                Check your Email Id
+            </p>
+            <img src="../../assets/git/mail-send.gif" alt="" srcset="" *ngIf="sent">
+            <form *ngIf="!sent">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email Id</mat-label>
+                    <input matInput type="email" name="email" [(ngModel)]="email" (click)="changeError()" required>
+                </mat-form-field>
+                <button mat-fab color="primary" type="submit" (click)="submit()"><mat-icon>send</mat-icon></button>
+            </form>     
+        </div>
+       
+</div>

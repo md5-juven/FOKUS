@@ -1,0 +1,131 @@
+version: "3.9"
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - kanbanprox
+    restart: always
+
+  mysql-data:
+    image: mysql:latest
+    container_name: mysql-data
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    networks:
+      - kanbanprox
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  mongo-data:
+    image: mongo:latest
+    container_name: mongo-data
+    networks:
+      - kanbanprox
+    ports:
+      - "27017:27017"
+
+  eureka-service:
+    container_name: eureka-service
+    build:
+      context: /eureka
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - kanbanprox
+    restart: always
+
+  api-gateway:
+    container_name: api-gateway
+    build: ApiGateway/
+    ports:
+      - "9500:9500"
+    networks:
+      - kanbanprox
+    depends_on:
+      - eureka-service
+
+  kanban-project:
+    container_name: kanban-project
+    build: kanbanProject/
+    ports:
+      - "8082:8082"
+    networks:
+      - kanbanprox
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      - mongo-data
+      - api-gateway
+      - eureka-service
+      - rabbitmq
+
+  kanban-user:
+    container_name: kanban-user
+    build: kanbanUser/
+    ports:
+      - "8083:8083"
+    networks:
+      - kanbanprox
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      - mongo-data
+      - api-gateway
+      - eureka-service
+
+  user-auth:
+    container_name: user-auth
+    build: UserAuthentication/
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+    networks:
+      - kanbanprox
+    depends_on:
+      - mysql-data
+      - api-gateway
+      - eureka-service
+      - rabbitmq
+
+  email-sender:
+    container_name: email-sender
+    build:
+      context: EmailNotification/
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    networks:
+      - kanbanprox
+    environment:
+      SPRING_RABBITMQ_HOST: rabbitmq
+    depends_on:
+      - rabbitmq
+      - api-gateway
+
+  chat-support:
+    container_name: chat-support
+    build: chat/
+    ports:
+      - "8087:8087"
+    networks:
+      - kanbanprox
+    depends_on:
+      - mongo-data
+      - eureka-service
+      - api-gateway
+
+
+networks:
+  kanbanprox:
+    driver: bridge

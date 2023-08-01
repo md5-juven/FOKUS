@@ -1,0 +1,260 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+.task-card {
+  margin: 0rem 0rem .3rem;
+  width: 90%;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.task-card:hover > #button{
+  visibility: visible;
+}
+
+#top_sec {
+  display: flex;
+}
+
+
+
+
+.example-container {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.example-list {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.example-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+mat-card-title {
+  font-weight: bold;
+}
+
+mat-card-subtitle {
+  color: gray;
+
+}
+
+mat-progress-bar {
+  margin-top: -32px;
+  background-color: #FF6600;
+  border-radius: 50px;
+}
+
+/* mat-select {
+  background-color: #f9f9f9;
+  margin: 5%;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+} */
+
+#Low {
+  color: green;
+  /* border: 2px solid green;
+  padding: 3px 5px 3px 5px;
+  border-radius: 8px;
+  width: min-content;
+  margin: 4px; */
+}
+
+#Moderate {
+  color: #FFBF00;
+  /* border: 2px solid #FFBF00;
+  padding: 3px 5px 3px 5px;
+  border-radius: 8px;
+  width: min-content;
+  margin: 4px; */
+}
+
+#High {
+  color: red;
+  /* border: 2px solid red;
+  padding: 3px 5px 3px 5px;
+  border-radius: 8px;
+  width: min-content;
+  margin: 4px; */
+
+}
+
+#name{
+  color: black;
+  font-size: 12px;
+}
+
+
+img {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+#profile{
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: default;
+}
+
+#buttons{
+  position: absolute;
+  top: 110px;
+  left: 100px;
+  background-color: transparent;
+}
+
+#icon{
+  border: 0;
+  position: absolute;
+  top: 110px;
+  left: 170px;
+  background-color: transparent;
+
+}
+
+#icon:hover{
+  color: orange;
+}
+
+#delete:hover{
+  color: red;
+}
+
+#delete{
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  background-color: transparent;
+  color: black;
+}
+
+i{
+  font-size: 17px;
+}
+
+.priority-list {
+  width: 170px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+}
+
+.priority-list > li {
+  display:flex;
+  justify-content: space-between;
+  list-style-type: none;
+  border-bottom: solid 1px #8b8b8b9c;
+  padding: 5px 0;
+}
+
+.priority-list > li:last-child {
+  border-bottom: none;
+}
+.priority-list > li:nth-child(1) {
+  padding: 0px 3px;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 5px;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+.memberList{
+  position: relative;
+  left: 70px;
+  margin-left: -8px;
+  padding: 0px !important;
+}
+
+mat-card-subtitle{
+  width: 120px !important;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+h5{
+  cursor: pointer;
+  margin-left: 50px;
+  margin-top: 20px;
+  width :100px;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* mat-card-actions{ */
+  /* visibility: hidden; */
+/* } */
+/* mat-card:hover mat-card-actions{ */
+  /* justify-content: space-around; */
+  /* visibility: visible; */
+/* } */
+
+.member_mune{
+  width: 50px;
+}

@@ -1,0 +1,12 @@
+mat-card{
+    width: 500px;
+    height: 300px;
+}
+
+i{
+    color: red;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 0;
+    background-color: transparent;
+}

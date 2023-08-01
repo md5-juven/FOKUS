@@ -1,0 +1,284 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@600&family=Phudu:wght@600&family=Raleway:wght@900&family=Roboto+Mono:ital,wght@1,600&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Tilt+Neon&family=Tilt+Warp&display=swap');
+
+@font-face {
+  font-family: kanyon-light;
+  src: url(../../assets/fonts/Fontspring-DEMO-kanyon-light.otf);
+}
+@font-face {
+  font-family: kanyon-heavy;
+  src: url(../../assets/fonts/Fontspring-DEMO-kanyon-heavy.otf);
+}
+
+@font-face {
+  font-family: kanyon;
+  src: url(../../assets/fonts/Fontspring-DEMO-kanyon-thinit.otf);
+}
+
+#main-container{
+  display: flex;
+  flex-direction: column;
+
+}
+h1{
+  margin-top: 110px;
+  margin-left: 100px;
+  font-size: 60px;
+  /* font-weight: 900px; */
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.2rem;
+  width: 30%;
+  line-height: 60px;
+ 
+}
+
+.gif{
+  width: 600px;
+ 
+}
+
+footer{
+  width: 100%;
+  margin-top: 70px;
+}
+
+h2{
+  /* position: relative;
+  top: 100px;
+  left: 45px; */
+  width: 60%;
+  font-size: 25px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.2rem;
+  line-height: 30px;
+  
+}
+h2>mat-icon{
+  
+  padding-top: 2px;
+  /* line-height: 20px; */
+}
+#add{
+  color: gray;
+}
+
+h3{
+  font-size: 25px;
+  font-family: 'kanyon';
+  color: gray;
+  margin-top: 100px;
+  margin-left: 100px;
+  line-height: 20px;
+  padding: 10px;
+}
+h3>mat-icon{
+  padding-top: 4px;
+}
+
+#gifs{
+  width: 550px;
+  position: relative;
+  top: -600px;
+  left: 1000px;
+}
+
+#btns{
+  width: fit-content;
+  margin-top: -25%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#btn{
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  width: 150px;
+  height: 50px;
+  color: #fff;
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.container{
+  /* position: relative;
+  top: -450px; */
+}
+
+#cards{
+  height: 600px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#video1{
+  /* position: relative;
+  top: 50px; */
+  border-radius: 20px;
+  /* left: 700px; */
+  width: 40%;
+}
+
+#card_img{
+  /* position: relative;
+  top: -350px; */
+  border-radius: 20px;
+  /* left: 700px; */
+  width: 40%;
+}
+
+mat-card-content{
+  display: flex;
+}
+.carousel-inner{
+  position: relative;
+}
+
+#carouselExampleInterval{
+  overflow: hidden;
+  width: 650px;
+  /* position: relative;
+  top: -150px;
+  left: 650px; */
+  
+  border-radius: 20px;
+}
+#carousel-container{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.carousel-control-prev-icon{
+  border-radius: 20px;
+  background-color: black;
+}
+
+.carousel-control-next-icon{
+  border-radius: 20px;
+  background-color: black;
+}
+
+.d-block{
+  width: 650px;
+  height: 550px;
+}
+
+.extra{
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#extra{
+ 
+  font-size: 25px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.2rem;
+  line-height: 30px;
+  width: fit-content;
+  margin-top:6%;
+  margin-bottom: 8%;
+}
+
+#join{
+  margin-left: 10%;
+  background-color: black;
+  color: white;
+}
+
+  #icon{
+    color: green;
+  }
+
+
+  #section1{
+    margin-top: -70px;
+  }
+
+  #star{
+    color: #fac73f;
+   font-weight: 900px;
+   font-size: 40px;
+   width: 40px;
+   height: 40px;
+  }
+
+  #rating{
+    color: #c3c8cf;
+    font-family: 'Roboto', sans-serif;
+   font-family: 'Tilt Neon', cursive;
+   font-family: 'Tilt Warp', cursive;
+  }
+
+  i{
+    color: orange;
+    font-size: 30px;
+  }
+
+  
+
+  #logo{
+    background-color: transparent;
+    border: 0px;
+    margin-left: 350px;
+  }
+
+  img{
+    width: 150px;
+  }
+
+  @media screen and (max-width : 500px) {
+    h1{
+      width: 80%;
+      margin-left: 8%;
+    }
+    #gifs{
+      display: none;
+    }
+    .gif{
+      width: 80%;
+    }
+    #main-container{
+      display: flex;
+      flex-direction: column  ;
+    }
+
+    #btns{
+      margin-top: 5%;
+    }
+    #carouselExampleInterval{
+      width: 100%;
+    }
+    #cards{
+      margin: 1%;
+      width: 98%;
+      height: fit-content;
+    }
+    
+    .extra{
+      padding-left: 5%;
+    }
+
+    mat-card-content{
+      flex-direction: column;
+    }
+
+    h2{
+      width: 100%;
+    }
+
+    #card_img{
+      width: 80%;
+    }
+    #join{
+      margin-left: 35%;
+      
+    }
+  }
+
+

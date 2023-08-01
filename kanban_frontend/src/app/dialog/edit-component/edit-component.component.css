@@ -1,0 +1,47 @@
+
+
+#main_form{
+    width: 1050px;
+    height: 600px;
+}
+
+h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 450px;
+}
+
+#desc{
+    margin-top: 50px;
+    margin-left: 60px;
+}
+
+#priority {
+    /* background-color: #f9f9f9; */
+    margin: 5%;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    width: 250px;
+}
+
+#gif{
+    position: fixed;
+    top: 250px;
+    left: 970px;
+    width: 550px;
+    height: 350px;
+}
+
+#cancel{
+    margin-left: 200px;
+    margin-right: 50px;
+}
+
+#input{
+    margin-left: 60px;
+    margin-top: 20px;
+}
+  

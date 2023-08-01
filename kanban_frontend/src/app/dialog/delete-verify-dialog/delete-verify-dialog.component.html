@@ -1,0 +1,22 @@
+<mat-card>
+    
+    <mat-card-header>
+        <mat-card-title>
+            <i class="fa-solid fa-triangle-exclamation"></i>Delete Project
+        </mat-card-title>
+        <mat-card-subtitle>
+            This process will delete the project permenently
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="mt-5">
+        <p>type <strong>"{{projectTitle}}"</strong> to drop the Pooject</p>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="Username" name="inputText" (keyup)="changeValue()" [(ngModel)]="inputText">
+          </div>
+    </mat-card-content>
+    <mat-card-actions class=" mt-4 d-flex justify-content-end">
+        <button type="button" class="btn btn-outline-dark me-3" (click)="cancle()">Cancel</button>
+        <button type="button" class="btn btn-outline-secondary" *ngIf="!inputEqual" disabled>Drop Project</button>
+        <button type="button" class="btn btn-danger" *ngIf="inputEqual" (click)="deleteProject()" >Drop Project</button>
+    </mat-card-actions>
+</mat-card>

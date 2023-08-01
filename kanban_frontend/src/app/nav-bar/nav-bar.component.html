@@ -1,0 +1,70 @@
+
+
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+    <mat-toolbar></mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" *ngIf="!tokenExist">Login</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign Up</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/query" [hidden]="isAdmin">Contact</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/pricing"> Pricing</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/about">About Us</a>
+      <a  mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</a>
+      <a mat-list-item  *ngIf="tokenExist" id="menu" matTooltip="Dashboard" routerLink="/dashboard" mat-icon-button><i class="fa-brands fa-foursquare"></i></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content (scroll)="scrollFunc($event)">
+   
+    <mat-toolbar id="navbar" [ngClass]="toolbar_variable?'toolbar_change':'mat-toolbar'" >
+    <div>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+   
+      <span><button id="logo"><img src="../../assets/sample.png" alt="" routerLink="/home" ></button></span>
+
+    </div>
+      
+    <div id="nav-btns">
+      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/query" [hidden]="isAdmin">Contact</button>
+      <button id="btn3"  [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/pricing"> Pricing</button>
+      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/about">About Us</button>
+      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</button>
+      <button *ngIf="tokenExist" id="menu" matTooltip="Dashboard" routerLink="/dashboard" mat-icon-button><i class="fa-brands fa-foursquare"></i></button>
+         <button (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin" [hidden]="!tokenExist" id="user"><img id="user_img" src="{{userDetails.profile_pic}}" alt=""></button>
+        <button *ngIf="!userDetails.profile_pic && tokenExist" (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" id="user"><i class="fa-solid fa-{{firstLetter}}"></i></button> 
+        <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+          <ul id="list">
+            <h2 *ngIf="tokenExist">Hi, {{userDetails.username}}</h2>
+            <button id="btn4" (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin"  routerLink="/edit">Edit Profile <i class="fa-sharp fa-solid fa-user-pen"></i></button><br>
+            <button id="btn2" cdkOverlayOrigin #trigger="cdkOverlayOrigin" color="warn" [ngClass]="toolbar_variable?'btn_login_change': 'btn_login'" (click)="logout()">Log Out <i class="fa-solid 
+              fa-right-from-bracket"></i></button><br>
+          </ul>
+        </ng-template>       
+
+        <!-- This button triggers the overlay and is it's origin -->
+
+     
+      <button id="btn5" mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" *ngIf="!tokenExist">Log in</button>
+      <button id="btn5" mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign Up</button>
+    </div>
+   
+      
+    </mat-toolbar>
+  
+      <router-outlet ></router-outlet>
+      
+    
+  </mat-sidenav-content> 
+ 
+  
+</mat-sidenav-container>
+

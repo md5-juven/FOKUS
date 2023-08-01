@@ -1,0 +1,71 @@
+<!-- <div> -->
+    <!-- <img src="../../assets/kanban.png" alt="background" id="img1"> -->
+    <!-- <h1>Welcome Back</h1> -->
+    <!-- <div id="login-form" [class.mat-elevation-z2]="true"> -->
+        <!-- <a href=""></a> -->
+            <!-- <h2>Login</h2> -->
+<!--  -->
+            <!-- <form [formGroup]="loginForm" (submit)="onLogin()"> -->
+                <!-- <mat-form-field appearance="outline"> -->
+                    <!-- <mat-label>Email Id</mat-label> -->
+                    <!-- <input matInput type="email" formControlName="email"> -->
+                    <!-- <mat-error *ngIf="email?.errors?.['required']"> -->
+                        <!-- Email is required. -->
+                    <!-- </mat-error> -->
+                <!-- </mat-form-field> -->
+                <!-- <mat-form-field appearance="outline"> -->
+                    <!-- <mat-label>Password</mat-label> -->
+                    <!-- <input matInput type="password" formControlName="password"> -->
+                    <!-- <mat-error *ngIf="password?.invalid"> -->
+                        <!-- Password required -->
+                    <!-- </mat-error> -->
+                <!-- </mat-form-field> -->
+<!--          -->
+                <!-- <button mat-mini-fab  color="warn" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button> -->
+<!--                  -->
+                    <!-- <h3 id="forgot" routerLink="/forgetPassword">Forgot Password?</h3> -->
+<!--  -->
+                <!-- <button routerLink="/home" id="btn"><mat-icon >arrow_back_ios</mat-icon></button> -->
+<!--  -->
+                <!-- <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with"></asl-google-signin-button> -->
+                <!-- <div> -->
+                    <!-- <h3> -->
+                        <!-- Dont have an account? <span routerLink="/register"> &nbsp; Sign Up</span> -->
+                    <!-- </h3> -->
+                <!-- </div> -->
+            <!-- </form> -->
+        <!-- </div> -->
+<!-- </div> -->
+
+<div id="main-container">
+     
+
+<div id="welcome">
+    <h1>WELCOME BACK</h1>
+    <img src="../../assets/welcome.png" alt="WELCOME">
+
+</div>
+
+<div  id="login-form" class="form-structor">
+	<div class="signup">
+        <form [formGroup]="loginForm" (submit)="onLogin()">
+		<h2 class="form-title" id="signup"><span>or</span>Log in</h2>
+		<div class="form-holder">
+			<input type="email" class="input" placeholder="Email" required formControlName="email"/>
+			<input [type]="hide ? 'password' : 'text'" class="input" placeholder="Password" required formControlName="password" />
+            <mat-icon id="eye" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+		</div>
+		<button [disabled]="!loginForm.valid" type="submit" class="submit-btn">Log in</button>
+        <h6 id="forgot" routerLink="/forgetPassword">Forgot Password ?</h6>
+         <!-- <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with"></asl-google-signin-button> -->
+    </form>
+	</div>
+	<div class="login slide-up">
+		<div class="center">
+			<h2 class="form-title" id="login" routerLink="/register"><h6>Don't have an Account ?</h6>Sign Up</h2>
+		</div>
+	</div>
+</div>
+</div>
+
+    

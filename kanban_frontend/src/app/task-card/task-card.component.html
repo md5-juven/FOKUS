@@ -1,0 +1,56 @@
+
+  <mat-card class="task-card">
+    <div id="top_sec">
+      <mat-card-header>
+        <mat-card-title>{{task.name}}
+        </mat-card-title>
+        <mat-card-subtitle>{{task.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="memberList mt-3" *ngFor="let user of task.memberList">
+          <img *ngIf="user?.profile_pic" src="{{user?.profile_pic}}" matTooltip="{{user?.email}}" alt="profile pictures">
+          <button *ngIf="!user?.profile_pic" matTooltip="{{user?.email}}" id="profile"><i id="name" class="fa-solid fa-{{user.username?.charAt(0)}}"></i></button>
+      </mat-card-content>
+    </div>
+
+    <mat-card-content>
+      
+      <button mat-icon-button type="button" [disabled]="isArchiveBoolean" (click)="isOpen = !isOpen" matTooltip="{{task.priority}}" cdkOverlayOrigin
+        #trigger="cdkOverlayOrigin"><mat-icon id='{{task.priority}}'>flag</mat-icon></button>
+      <!-- This template displays the overlay content and is connected to the button -->
+      <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+        <ul type="none" class="priority-list">
+          <li type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changepriority('Low')"><mat-icon
+              id='Low'>flag</mat-icon><p>LOW</p><mat-icon *ngIf="task.priority == 'Low'">check</mat-icon></li>
+          <li type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changepriority('Moderate')"><mat-icon
+              id='Moderate'>flag</mat-icon>MODERATE<mat-icon *ngIf="task.priority == 'Moderate'">check</mat-icon></li>
+          <li type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changepriority('High')"><mat-icon
+              id='High'>flag</mat-icon>HIGH<mat-icon *ngIf="task.priority == 'High'">check</mat-icon></li>
+        </ul>
+      </ng-template>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <div>
+
+      </div>
+      <!-- <button mat-icon-button [matMenuTriggerFor]="addMember" matTooltip="No Members Added to Task" ><i id="add" class="fa-solid fa-user-plus"></i></button>
+      <mat-menu  class="member_mune"  #addMember="matMenu">
+        <div mat-menu-item>
+          <mat-select [(ngModel)]="formData.memberList" name="memberList" multiple>
+            <mat-option matTooltipPosition="left" *ngFor="let email of members" [value]="email">
+              {{email.email}}
+            </mat-option>
+          </mat-select>
+        </div>
+      </mat-menu> -->
+      
+      <button mat-icon-button [disabled]="isArchiveBoolean" (click)="taskDetails(task)" matTooltip="Edit Task"><i id="pen" class="fa-solid fa-file-pen"></i></button>
+      <button mat-icon-button  matTooltip="Delete Task" [disabled]="creator || isArchiveBoolean" (click)="deleteTask(task)"><i id="trash" class="fa-solid fa-trash"></i></button>
+      <h5 matTooltip="{{task.lastChangedBy}}">{{task.lastChangedBy}} &nbsp;&nbsp;</h5><i matTooltip="Last Edited" class="fa-solid fa-check-double"></i>
+    </mat-card-actions>
+    <!-- <mat-card-footer> -->
+      <!-- <mat-progress-bar mode="determinate" value="50"></mat-progress-bar> -->
+    <!-- </mat-card-footer> -->
+  </mat-card>
+
+ 

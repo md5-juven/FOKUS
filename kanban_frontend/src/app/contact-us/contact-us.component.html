@@ -1,0 +1,60 @@
+<div id="main-container">
+
+  <div id="img">
+    <img src="../../assets/person1.png" alt="person" id="person">
+  </div>
+
+  <mat-card class="mat-card" >
+
+  <!-- <div [hidden]="!isLoggedIn">
+    <mat-card-title><h1>WRITE TO US!</h1></mat-card-title>
+    <mat-card-content>
+        <form>
+            <input type="text" name="name" class="question" id="nme" required autocomplete="off" />
+            <label for="nme"><span>Enter your EMAIL-ID</span></label><br><br>
+            <textarea name="message" rows="3" class="question" id="msg" required autocomplete="off"></textarea>
+            <label for="msg"><span>How Can We Help You?</span></label>
+            <input id="submit" type="submit" value="Submit" />
+          </form>
+    </mat-card-content>
+
+  </div> -->
+
+  <div id="support">
+    <h2>Fokus Chat Support</h2>
+  </div>
+  <div id="chat-history">
+    <mat-card-content  *ngFor="let message of messages$">
+
+      <div id="sender" *ngIf="message?.email === email">
+        <p>{{message.message}}</p>
+      </div>
+      <div id="receiver" *ngIf="message?.email === 'care.fokus@gmail.com'">
+        <p>{{message.message}}</p>
+      </div>
+
+    </mat-card-content>
+
+
+  </div>
+      <div id="input-message">
+    <form #chat="ngForm" (ngSubmit)="sendMessage(chat)">        
+       
+          <input id="input" type="text" name="message" placeholder="Type your query here" [(ngModel)]="formData.message" #message="ngModel" required>
+      
+        <button mat-mini-fab type="submit" [disabled]="chat.form.invalid"><mat-icon>send</mat-icon></button>
+    </form>
+  </div>
+
+
+    
+
+  </mat-card>
+
+  <div *ngIf="title" id="adv">
+    <h1>GET FASTER REPLIES NOW ... ! <br> AND 24/7 SUPPORT <br><button id="get" mat-raised-button color="warn" routerLink="/pricing">GET NOW</button></h1>
+  </div>
+</div>
+  <footer>
+    <app-footer></app-footer>
+  </footer>

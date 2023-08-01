@@ -1,0 +1,53 @@
+<div id="main-container">
+
+  <div>
+    <h1>
+      One Web App to focus on all your projects.
+    </h1>
+    <img class="gif" id="gif" src="../../assets/working@home.gif" alt="">
+  </div>
+
+  <div>
+    <img id="gifs" src="../../assets/desc.png" alt="GIF">
+  </div>
+
+  <div id="btns">
+    <button id="btn" *ngIf="name" mat-raised-button routerLink="/dashboard">Get Started</button>
+    <button id="btn" *ngIf="!name" mat-raised-button routerLink="/register">Get Started</button>
+  </div>
+
+
+
+  <div class="container">
+    <mat-card id="cards">
+      <mat-card-content>
+        <div>
+          <h2>“Management is, above all, a practice where art, science, and craft meet.” -Henry Mintzberg. ...
+            <br><br><br><br>
+            “The key to successful leadership today is influence not authority.” - Kenneth Blanchard. <br><br><br>
+            Let's Join Together and Create a Community <br><br>
+            FOKUS WELCOME's You...</h2>
+          <button id="join" mat-raised-button routerLink="/pricing">Join Now</button>
+        </div>
+        <img id="card_img" src="../../assets/card_gif.gif" alt="GIF">
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="extra">
+    <h2 id="extra">Start Now and Experience Our Futuristic UI </h2>
+  </div>
+
+  <div id="carousel-container">
+    <iframe id="carouselExampleInterval" width="500" height="450" src="https://www.youtube.com/embed/DM4K1zflQw4?controls=0"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen></iframe>
+  </div>
+
+</div>
+
+
+<footer>
+  <app-footer></app-footer>
+</footer>

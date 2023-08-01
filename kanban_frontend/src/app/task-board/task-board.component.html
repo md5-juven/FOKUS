@@ -1,0 +1,57 @@
+<div id="task-container" cdkDropListGroup  >
+          
+        <div  id="todo" class="task-status" >
+            <h1><mat-icon>create</mat-icon>TO DO</h1>
+            <div class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('TO DO') || []" id="todo" (cdkDropListDropped)="drop($event, 'TO DO')" [cdkDropListConnectedTo]="['inprogress','Submitted', 'Completed']">
+                <div *ngIf="getTasksByStatus('TO DO')?.length === 0" class="text"><h1>No task in list</h1></div>
+            <div *ngFor="let task of taskList">
+                <div  *ngIf="task?.status=== 'TO DO'" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="isArchiveStatus === 'ARCHIVE'"></app-task-card> 
+                </div>                
+            </div>
+    </div>
+
+    </div>
+        <div id="in-progress" class="task-status"  >
+            <h1><mat-icon>loop</mat-icon>IN PROGRESS</h1>
+                <div class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('In Progress') || []" id="inprogress" (cdkDropListDropped)="drop($event, 'In Progress')"> 
+                    <div *ngIf="getTasksByStatus('In Progress')?.length === 0" class="text"><h1>No task in list</h1></div>
+            <div *ngFor="let task of taskList">
+                
+                <div *ngIf="task?.status=== 'In Progress'" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="isArchiveStatus === 'ARCHIVE'"></app-task-card> 
+                </div>                
+            </div>
+       
+        </div>
+        </div>
+        <div id="submitted" class="task-status" >
+            <h1><mat-icon>check_circle_outline</mat-icon>SUBMITTED</h1>
+          
+                <div class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('Submitted') || []" id="Submitted" (cdkDropListDropped)="drop($event, 'Submitted')">
+                    <div *ngIf="getTasksByStatus('Submitted')?.length === 0" class="text"><h1>No task in list</h1></div>
+            <div *ngFor="let task of taskList">
+                <div *ngIf="task?.status=== 'Submitted'" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="creator || isArchiveStatus === 'ARCHIVE'"></app-task-card> 
+                </div>                
+            </div>
+        
+        </div>
+
+        </div>
+        <div id="completed" class="task-status" >
+            <h1><mat-icon id="done">check_circle</mat-icon>COMPLETED</h1>
+
+                <div  class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('Completed') || []" id="Completed" [cdkDropListDisabled]="creator"  (cdkDropListDropped)="drop($event, 'Completed')">
+                    <div *ngIf="getTasksByStatus('Completed')?.length === 0" class="text"><h1>No task in list</h1></div>
+            <div *ngFor="let task of taskList">
+                <div *ngIf="task?.status=== 'Completed'" id="non-responsive" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task"></app-task-card> 
+                </div>                
+            </div>
+
+        </div>
+        </div>
+    
+
+</div>

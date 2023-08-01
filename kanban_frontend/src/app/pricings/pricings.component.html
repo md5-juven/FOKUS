@@ -1,0 +1,102 @@
+
+
+<div class="d-flex">
+    <img id="payment" src="../../assets/payment.png" alt="payment">
+<div class="flip-card-container" style="--hue: 220">
+    <div class="flip-card">
+  
+      <div class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img src="../../assets/pay3.jpg" alt="Brohm Lake">
+          <figcaption>STANDARD</figcaption>
+        </figure>
+  
+        <ul>
+          <li><mat-icon>cloud_off</mat-icon>Limited Projects</li>
+          <li><mat-icon>person</mat-icon>Limited Users on Projects</li>
+          <li><mat-icon> chat_bubble</mat-icon>No 24/7 Chat Support</li>
+          <li><mat-icon>not_interested</mat-icon>No Extra Premium Features</li>
+          <li>Dont Miss out Join Now<mat-icon class="blink">arrow_right_alt</mat-icon></li>
+        </ul>
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img src="../../assets/pay2.jpg" alt="Standard">
+        </figure>
+  
+        <button *ngIf="name" (click)="freeMessage()">Free</button>
+        <button *ngIf="!name" (click)="toSignUp()">Sign Up</button>
+  
+        <div class="design-container">
+          <span class="design design--1"></span>
+          <span class="design design--2"></span>
+          <span class="design design--3"></span>
+          <span class="design design--4"></span>
+          <span class="design design--5"></span>
+          <span class="design design--6"></span>
+          <span class="design design--7"></span>
+          <span class="design design--8"></span>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <!-- /flip-card-container -->
+  
+  <!-- flip-card-container -->
+  <div class="flip-card-container" style="--hue: 170">
+    <div class="flip-card">
+  
+      <div class="card-front">
+        <figure>
+          <div class="img-bg"></div>
+          <img src="../../assets/pay1.jpg" alt="Image 2">
+          <figcaption>PREMIUM</figcaption>
+        </figure>
+  
+        <ul>
+          <li><b><mat-icon>cloud_queue</mat-icon>Unlimited Projects</b></li>
+          <li><b><mat-icon>people</mat-icon>Unlimited Users on Projects</b></li>
+          <li><b><mat-icon> chat</mat-icon>24/7 Chat Support</b></li>
+          <li><b><mat-icon>new_releases</mat-icon>Extra Premium Features</b></li>
+          <li><b>Starts @ <strong> ₹199 </strong> Only</b></li>
+        </ul>
+      </div>
+  
+      <div class="card-back">
+        <figure>
+          <div class="img-bg"></div>
+          <img src="../../assets/pay2.jpg" alt="image-2">
+        </figure>
+  
+        <button *ngIf="name && title=='FREE'" (click)="pay()">Pay Now</button>
+        <h2 *ngIf="name && title=='PREMIUM'">Thankyou For Subscribing</h2>
+        <div>
+          <button id="dash" *ngIf="name && title=='PREMIUM'" routerLink="/dashboard">Dashboard</button>
+        </div>
+        
+        <button *ngIf="!name" (click)="toSignUp()">Sign Up</button>
+  
+        <div class="design-container">
+          <span class="design design--1"></span>
+          <span class="design design--2"></span>
+          <span class="design design--3"></span>
+          <span class="design design--4"></span>
+          <span class="design design--5"></span>
+          <span class="design design--6"></span>
+          <span class="design design--7"></span>
+          <span class="design design--8"></span>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  <!-- /flip-card-container -->
+</div>
+
+<footer>
+    <app-footer></app-footer>
+</footer>

@@ -1,0 +1,70 @@
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+    background-color: transparent;
+    /* border: 1px solid gray; */
+}
+#login-form{
+    margin-top: 11%;
+    width: 550px;
+    height: 300px;
+    margin-left: 60%;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+#img1{
+    position: absolute;
+    top: 30%;
+    left: 450px;
+    width: 700px;
+}
+
+mat-label{
+    background-color: f6f8fc;
+}
+
+mat-error{
+    font-size: 15px;
+    color: black;
+}
+mat-form-field{
+    margin-top: 1rem;
+    width: 50%;
+    background-color: f6f8fc;
+}
+h1{
+    margin-top: 70px;
+    margin-left: 62%;
+    font-size: 60px;
+    font-weight: 900px;
+    /* font-family: 'Phudu', cursive; */
+    letter-spacing: 0.2rem;
+}
+
+h2{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 900px;
+    padding-top: 1.5rem;
+    /* font-family: 'Phudu', cursive; */
+}
+
+button{
+    position: relative;
+    top: -80px;
+    left: 180px;
+}
+
+#back{
+    margin-left: 5px;
+}
+p{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 3%;
+    font-size: 15px;
+}

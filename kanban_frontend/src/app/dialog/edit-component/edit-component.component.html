@@ -1,0 +1,32 @@
+
+
+<div id="main_form">
+    <h1><i class="fa-solid fa-pen-to-square"></i> &nbsp;&nbsp;TASK EDIT PAGE</h1>
+    <form>
+      <mat-form-field appearance="outline" id="input">
+        <mat-label>Task Name</mat-label>
+        <input [readonly]="creator" matInput [(ngModel)]="task.name" name="task.name" type="text" [value]="task.name">
+      </mat-form-field><br>
+        <mat-form-field style="width: 500px !important;" id="desc" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="task.description" name="task.description" cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="8" [value]="task.description">
+            </textarea>
+        </mat-form-field><br>
+        <mat-select id="priority" [(ngModel)]="task.status"  name="status" [value]="task.status">
+            <mat-option *ngFor= "let status of statuses" [value]="status" >{{status}}</mat-option>
+        </mat-select>
+        <mat-form-field *ngIf="!creator" appearance="outline" id="input4">
+            <mat-label>Members</mat-label>
+            <mat-select  [(ngModel)]="selectedValue" name="selectedValue" multiple>
+              <mat-option [disabled]="isOptionDisabled(email.email) || isOprionLimiter(email.email!)" *ngFor="let email of emails" [value]="email.email">
+                {{email.email}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+          <button id="cancel" mat-raised-button color="warn" (click)="cancelEdit()" type="button">Cancel</button>
+          <button id="submit" mat-raised-button color="primary" type="button" (click)="updatedTask()">Submit</button>
+    </form>
+    <div >
+        <img id="gif" src="../../../assets/signUp.gif" alt="">
+    </div>
+</div>
